@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvctest
+  labels:
+    app: pvctest
+spec:
+  containers:
+  - name: pvctest-container
+    image: gourao/nfstest
+    imagePullPolicy: Always
+      privid: true	
+    command: ["/usr/local/bin/pvctest"]
+    args: ["nfs://NETAPP_IP/trident_pvc_faba8030_57f4_4b62_9976_593633f17327"]
+  restartPolicy: OnFailure
