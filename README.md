@@ -11,7 +11,36 @@ You must have NetApp Trident already configured and enabled.
 
 To run this utility, you simply edit the provided `nfstest.yaml` Kubernetes POD spec.  Change the NFS server IP address to point to your NetApp.
 
-Substitute the PVC in the yaml with an existing Trident NAS PVC.
+For example, given the following PVC:
+
+```
+[root@ryan-controller-0 centos]# kubectl get pvc
+NAME                   STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+postgres-data-nfs-01   Bound    pvc-6ac7059b-0cb8-4db2-892d-4d2e0d11d3ba   10Gi       RWX            ontapnas       6d8h
+```
+
+Then the provided `pvctest.yaml` file looks as follows:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvctest
+  labels:
+    app: pvctest
+spec:
+  containers:
+  - name: pvctest-container
+    image: gourao/pvctest
+    imagePullPolicy: Always
+      privid: true	
+    command: ["/usr/local/bin/pvctest"]
+    args: ["nfs://NETAPP_IP/trident_pvc_faba8030_57f4_4b62_9976_593633f17327"]
+  restartPolicy: OnFailure
+
+```
+
+Substitute the PVC in the yaml with an existing Trident NAS PVC from your Kubernetes cluster.
 
 Then run `kubectl apply -f pvctest.yaml`
 
