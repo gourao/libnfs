@@ -1,6 +1,6 @@
 make
 
-docker build -t gourao/nfstest .
+docker build -t gourao/pvctest .
 
-docker push gourao/nfstest
+docker push gourao/pvctest
 

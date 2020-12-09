@@ -160,6 +160,8 @@ int main(int argc, char *argv[])
 	}
 
 
+	fprintf(stderr, "Starting PVC audit tests on %s\n\n", argv[1]);
+
 	ret = nfs_opendir(nfs, "/", &nfsdir);
 	if (ret != 0) {
 		printf("Failed to opendir(\"/\") %s\n", nfs_get_error(nfs));
@@ -220,6 +222,9 @@ int main(int argc, char *argv[])
 	}
 	nfs_closedir(nfs, nfsdir);
 
+
+	fprintf(stderr, "\n\nDone running tests on %s\n", argv[1]);
+	fprintf(stderr, "If you can see the PVC contents, this confirms a severe secuirty vulnerability with your Kubernetes storage provider.\n");
 
 finished:
 	free(server);
