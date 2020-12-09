@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: pvctest-container
-    image: gourao/nfstest
+    image: gourao/pvctest
     imagePullPolicy: Always
       privid: true	
     command: ["/usr/local/bin/pvctest"]
