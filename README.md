@@ -67,6 +67,43 @@ Inspect the output.
 
 If you can see the PVC's contents, then this demonstrates that this POD can succesfully access a PVC from some other deployment, without even having been granted that PVC via Kubernetes.  This would demonstrate a serious security flaw.
 
+An example output would look as follows:
+
+```
+    [root@ryan-controller-0 centos]# kubectl logs pvctest
+	Starting PVC audit tests on nfs://172.31.50.245/trident_pvc_6ac7059b_0cb8_4db2_892d_4d2e0d11d3ba/pgdata
+
+
+	-rw-------  1   999   999           36 postmaster.opts
+	-rw-------  1   999   999          101 postmaster.pid
+	-rw-------  1   999   999         1636 pg_ident.conf
+	-rw-------  1   999   999         4535 pg_hba.conf
+	-rw-------  1   999   999           88 postgresql.auto.conf
+	-rw-------  1   999   999        22729 postgresql.conf
+	-rw-------  1   999   999            3 PG_VERSION
+	drwx------  4   999   999         4096 pg_logical
+	drwx------  2   999   999         4096 pg_xact
+	drwx------  2   999   999         4096 pg_stat_tmp
+	drwx------  2   999   999         4096 pg_stat
+	drwx------  2   999   999         4096 pg_tblspc
+	drwx------  2   999   999         4096 pg_replslot
+	drwx------  5   999   999         4096 base
+	drwx------  4   999   999         4096 pg_multixact
+	drwx------  2   999   999         4096 pg_twophase
+	drwx------  2   999   999         4096 pg_subtrans
+	drwx------  2   999   999         4096 pg_snapshots
+	drwx------  2   999   999         4096 pg_serial
+	drwx------  2   999   999         4096 pg_notify
+	drwx------  2   999   999         4096 pg_dynshmem
+	drwx------  2   999   999         4096 pg_commit_ts
+	drwx------  2   999   999         8192 global
+	drwx------  3   999   999         4096 pg_wal
+
+	Done running tests on nfs://172.31.50.245/trident_pvc_6ac7059b_0cb8_4db2_892d_4d2e0d11d3ba/pgdata
+	If you can see the PVC contents, this confirms a severe secuirty vulnerability with your Kubernetes storage provider.
+
+```
+
 
 ## Building
 
