@@ -1,6 +1,6 @@
 # Kubernetes PVC Audit Tool
 
-This tool is meant to test the validity of running Kubernetes storage provider in production.  It is based on libnfs and other user space block utilities.
+This tool is meant to test the validity of running a Kubernetes storage provider in production.  It is based on libnfs and other user space block utilities.
 
 ## Usage
 
