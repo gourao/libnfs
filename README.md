@@ -32,8 +32,7 @@ spec:
   containers:
   - name: pvctest-container
     image: gourao/pvctest
-    imagePullPolicy: Always
-      privid: true	
+    imagePullPolicy: Always	
     command: ["/usr/local/bin/pvctest"]
     args: ["nfs://NETAPP_IP/trident_pvc_6ac7059b_0cb8_4db2_892d_4d2e0d11d3ba"]
   restartPolicy: OnFailure
