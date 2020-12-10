@@ -9,7 +9,7 @@ This utility is designed to run in Kubernetes.  You must already have a storage 
 ### Testing with NetApp
 This section describes how to run this tool with NetApp Trident.  You must have NetApp Trident already configured and enabled.  
 
-To run this utility, you simply edit the provided `nfstest.yaml` Kubernetes POD spec.  Change the NFS server IP address to point to your NetApp.
+To run this tool against Trident, you simply edit the provided `nfstest.yaml` Kubernetes POD spec.  Change the NFS server IP address to point to your NetApp.
 
 For example, given the following PVC:
 
