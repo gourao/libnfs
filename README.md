@@ -4,10 +4,10 @@ This tool is meant to test the validity of running a Kubernetes storage provider
 
 ## Usage
 
-This utility is designed to run in Kubernetes.  You must already have a storage provisioner installed and configured.  You should also 
+This utility is designed to run in Kubernetes.  You must already have a storage provisioner installed and configured.
 
 ### Testing with NetApp
-You must have NetApp Trident already configured and enabled.  
+This section describes how to run this tool with NetApp Trident.  You must have NetApp Trident already configured and enabled.  
 
 To run this utility, you simply edit the provided `nfstest.yaml` Kubernetes POD spec.  Change the NFS server IP address to point to your NetApp.
 
