@@ -19,7 +19,7 @@ NAME                   STATUS   VOLUME                                     CAPAC
 postgres-data-nfs-01   Bound    pvc-6ac7059b-0cb8-4db2-892d-4d2e0d11d3ba   10Gi       RWX            ontapnas       6d8h
 ```
 
-Then the provided `pvctest.yaml` file looks as follows:
+Then modify the provided `pvctest.yaml` file to look as follows:
 
 ```
 apiVersion: v1
@@ -40,7 +40,7 @@ spec:
 
 ```
 
-Substitute the PVC in the yaml with an existing Trident NAS PVC from your Kubernetes cluster.
+Remember to substitute the PVC in the yaml with an existing Trident NAS PVC from your Kubernetes cluster.
 
 Then run `kubectl apply -f pvctest.yaml`
 
