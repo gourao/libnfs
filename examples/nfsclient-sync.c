@@ -224,7 +224,7 @@ int main(int argc, char *argv[])
 
 
 	fprintf(stderr, "\n\nDone running tests on %s\n", argv[1]);
-	fprintf(stderr, "If you can see the PVC contents, this confirms a severe secuirty vulnerability with your Kubernetes storage provider.\n");
+	fprintf(stderr, "If you can see the PVC contents, this confirms a severe security vulnerability with your Kubernetes storage provider.\n");
 
 finished:
 	free(server);
