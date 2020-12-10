@@ -111,7 +111,7 @@ To build from source:
 
 ```
     ./bootstrap
-    ./configure --with-examples
+    ./configure --enable-examples
     make
 ```
 
