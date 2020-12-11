@@ -1,6 +1,8 @@
-# Kubernetes PVC Audit Tool
+# Kubernetes PVC Bleed Audit Tool
 
 This tool is meant to test the validity of running a Kubernetes storage provider in production.  It is based on libnfs and other user space block utilities.
+
+It tests for a PVC bleed between namespaces and Kubernetes clusters.  A PVC bleed is a scenario where a PVC (and it's contents) from Namespace A and visible and accessible from Namespace B.  Sometimes this bleed can occur even across Kubernetes clusters.
 
 ## Usage
 
@@ -42,9 +44,15 @@ spec:
 
 Remember to substitute the PVC in the yaml with an existing Trident NAS PVC from your Kubernetes cluster.
 
-Then run `kubectl apply -f pvctest.yaml`
+This will cause the utility to run a range of tests against the provided PVC.  The utility can run three test scenarios:
 
-This will cause the utility to run a range of tests against the provided PVC.
+1. PVC and Data accessibility across Namespaces 
+
+2. PVC and Data modification - In this test, the tool tries to read the contents of a file from a PVC belonging to Namespace A from Namespace B
+
+3. Data deletion - In this test, the tool will attempt to delete data from a PVC belonging to Namespace A from Namespace B
+
+To start the test, run `kubectl apply -f pvctest.yaml`
 
 Wait for the POD to run to completion.  You should see something as follows:
 
