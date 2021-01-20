@@ -41,6 +41,25 @@ spec:
   restartPolicy: OnFailure
 
 ```
+> **NOTE: ** If you want to list all PVCs from the Netapp directly, that can be done too.  Just leave the PVC argument blank in the spec as below:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvctest
+  labels:
+    app: pvctest
+spec:
+  containers:
+  - name: pvctest-container
+    image: gourao/pvctest
+    imagePullPolicy: Always
+      privid: true	
+    command: ["/usr/local/bin/pvctest"]
+    args: ["nfs://NETAPP_IP/"]
+  restartPolicy: OnFailure
+```
 
 Remember to substitute the PVC in the yaml with an existing Trident NAS PVC from your Kubernetes cluster.
 
